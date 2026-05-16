@@ -90,12 +90,86 @@ body {
 /* Consultant card image: photo shows true color on hover; no transform scale
    since the image is absolutely positioned with calibrated offsets. */
 .consultant-img {
-    filter: grayscale(20%) contrast(0.98);
+    filter: grayscale(18%) contrast(0.98);
     transition: filter 700ms ease-out;
 }
 
 .consultant-card:hover .consultant-img {
     filter: grayscale(0%) contrast(1);
+}
+
+/* Photo well — soft cream tone to absorb any whitespace from source assets */
+.consultant-photo {
+    background-color: #EFE7D6;
+    isolation: isolate; /* ensure mix-blend-mode applies within this stacking context */
+}
+
+/* Subtle editorial vignette only — no hard cream frame. Multiply blend
+   keeps whites tinted but does not paint a visible edge. */
+.consultant-wash {
+    background:
+        linear-gradient(180deg,
+            rgba(235, 228, 213, 0.4) 0%,
+            rgba(235, 228, 213, 0) 8%,
+            rgba(235, 228, 213, 0) 78%,
+            rgba(26, 54, 45, 0.2) 100%
+        );
+    mix-blend-mode: multiply;
+    transition: opacity 700ms ease-out;
+    opacity: 1;
+}
+
+.consultant-card:hover .consultant-wash {
+    opacity: 0.55;
+}
+
+/* Inner zoom wrapper: pivots from center so it can scale cleanly without
+   disrupting the absolutely-positioned image's horizontal offset. */
+.consultant-zoom {
+    transition: transform 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform-origin: 50% 35%;
+    will-change: transform;
+}
+
+.consultant-card:hover .consultant-zoom {
+    transform: scale(1.045);
+}
+
+/* Card-level entrance animation triggered by IntersectionObserver */
+.consultant-card {
+    opacity: 0;
+    transform: translateY(36px);
+    transition:
+        opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.consultant-card.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Subtle vertical lift on hover (composed with translateY from entrance) */
+.consultant-card.in-view {
+    transition:
+        opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.consultant-card.in-view:hover {
+    transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .consultant-card,
+    .consultant-card.in-view,
+    .consultant-zoom,
+    .consultant-img,
+    .consultant-wash {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }
 
 .consultant-card .name-underline {

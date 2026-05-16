@@ -1,0 +1,81 @@
+{
+  "summary": "Frontend-only verification of ARETION & Company landing page (iteration 2). All 10 explicit acceptance items in the review request PASS. However a high-priority CONTENT bug was discovered: 4 of the 20 consultant cards render the wrong image due to incorrect CSS crop offsets — the consultant's portrait is not visible; instead a non-portrait region of the source sheet is shown (rope bridge, flowers, red 'Emer' sign).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "ConsultantShowcase",
+        "issue": "Card 03 (Bodor Alqaaed) shows a rope bridge image instead of a portrait — crop offset for SHEET_1 col=2 is wrong.",
+        "selector": "[data-testid='consultant-card-2'] img.consultant-img",
+        "priority": "HIGH"
+      },
+      {
+        "component": "ConsultantShowcase",
+        "issue": "Card 08 (Mona AlMofadda) shows a basket of yellow flowers instead of a portrait — crop offset for SHEET_2 col=3 is wrong.",
+        "selector": "[data-testid='consultant-card-7'] img.consultant-img",
+        "priority": "HIGH"
+      },
+      {
+        "component": "ConsultantShowcase",
+        "issue": "Card 11 (Mohammed Badawy) shows pink flowers instead of a portrait — crop offset for SHEET_3 col=2 is wrong.",
+        "selector": "[data-testid='consultant-card-10'] img.consultant-img",
+        "priority": "HIGH"
+      },
+      {
+        "component": "ConsultantShowcase",
+        "issue": "Card 13 (Dr. Naif Mohammad M Harthi) shows a red 'Emer' building sign instead of a portrait — crop offset for SHEET_4 col=0 is wrong.",
+        "selector": "[data-testid='consultant-card-12'] img.consultant-img",
+        "priority": "HIGH"
+      },
+      {
+        "component": "ConsultantShowcase",
+        "issue": "Root cause: the inline crop math assumes a clean 4-column portrait strip per sheet (left: -(col*250 + 75)% with width:1000%). The actual source screenshots evidently include non-portrait tiles or non-uniform column widths, so columns map to non-face regions for at least 4 cards. Either the per-card 'col' indices need correcting, or per-card x/y offset overrides (or distinct sources) are required.",
+        "selector": "ConsultantShowcase.jsx CONSULTANTS array + crop math",
+        "priority": "HIGH"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Consultants section",
+        "issues": [
+          "Some valid portrait crops (e.g. card 01 Bandar Mzahim, card 05 Sharafaldeen Bin Nafisah) are vertically clipped a bit high — the top of the head/ghutra is partly cut. Consider easing the top: -14% offset down to ~-8% for affected sheets or per-card y-offset."
+        ]
+      }
+    ]
+  },
+  "verified_acceptance_criteria": {
+    "landing_page_loads_no_console_errors": "PASS — only React DevTools info; no pageerror events.",
+    "20_consultant_cards_rendered": "PASS — exactly 20 cards (consultant-card-0..19) found.",
+    "name_spec_experience_per_card": "PASS — sampled cards 0/5/19 all populated correctly.",
+    "star_ratings_completely_removed": "PASS — 0 lucide-star icons inside consultant-card-* and 0 elements with aria-label containing 'out of 5'.",
+    "scroll_triggered_motion": "PASS — card-15 initial: opacity=0, translateY(36px), no 'in-view' class; after scrolling section into view: opacity=1, transform=matrix identity, class 'in-view' present.",
+    "consultant_wash_overlay_present": "PASS — .consultant-wash exists inside .consultant-photo for card-0 (and structurally for all cards).",
+    "hero_stats_removed": "PASS — no [data-testid='hero-stats'] in DOM.",
+    "footer_aretion_co_uk_content": "PASS — footer-address-london contains 'Shelton Street'; footer-address-gulf contains 'Al Aqeeq'; footer-email = 'post@aretion.co.uk'; group-solutions / group-consulting / group-publishing links all present.",
+    "emergent_badge_removed": "PASS — document.getElementById('emergent-badge') returns null after mount (interval-based removal works).",
+    "ctas_link_to_platform_join": "PASS — header-cta-button, hero-cta-primary, main-cta-button all have href='https://platform.aretion.com/join' and target='_blank'."
+  },
+  "test_report_links": [],
+  "action_items": [
+    "Fix crop offsets / sources for at least 4 cards displaying non-portrait imagery: card-2 (Bodor Alqaaed, SHEET_1 col=2), card-7 (Mona AlMofadda, SHEET_2 col=3), card-10 (Mohammed Badawy, SHEET_3 col=2), card-12 (Dr. Naif Mohammad M Harthi, SHEET_4 col=0). Recommend either (a) replacing those sheet/col mappings with the correct portrait coordinates, (b) overriding per-card left/top offsets, or (c) using individual portrait URLs per consultant rather than a sheet-crop approach.",
+    "Optionally relax top:-14% on .consultant-img to avoid head-top clipping on cards where subjects are framed tighter."
+  ],
+  "critical_code_review_comments": [
+    "ConsultantShowcase.jsx hard-codes 5 sheet URLs and assumes uniform 4-column layout — fragile if Emergent CDN changes any sheet. Consider switching to one source per consultant.",
+    "LandingPage.jsx runs setInterval(removeBadge, 800) for the lifetime of the page; once removed it could clearInterval after first successful removal to avoid an unnecessary recurring DOM query.",
+    "ConsultantShowcase IntersectionObserver correctly unobserves after first trigger — good. The reduced-motion branch is also handled.",
+    "All interactive elements carry data-testid attributes — good testability."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only request)", "frontend": "10/10 acceptance criteria PASS; 1 high-priority content bug (wrong consultant photos on 4/20 cards)"},
+  "test_credentials": "N/A (static landing page, no auth)",
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "All spec acceptance items currently pass on https://healthcare-advisors.preview.emergentagent.com. The remaining work is content/crop correctness: scroll to the consultants grid and visually verify each card shows a portrait of the person named. If main agent re-crops, re-screenshot consultants_full and confirm cards 03, 08, 11, 13 show human portraits matching the labels.",
+  "rca of the issue": "The CSS-strip-crop technique in ConsultantShowcase.jsx scales each composite screenshot to 1000% width and shifts it left by (col * 250 + 75)% to expose 1 of 4 portraits per sheet. This assumes each sheet image is a uniform 4-column portrait strip. In reality at least four mappings land on non-portrait regions of the source PNGs, producing rope-bridge/flower/sign tiles for cards 2, 7, 10, 12. Fix by either correcting the sheet/col indices in the CONSULTANTS array, supplying per-card left/top overrides, or — preferred — replacing the strip approach with one URL per consultant."
+}
