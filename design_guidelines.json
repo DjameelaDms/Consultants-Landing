@@ -1,0 +1,114 @@
+{
+  "theme": "light",
+  "archetype": "1_and_5_blend",
+  "archetype_name": "Organic Earthy & Jewel Luxury",
+  "design_strategy": "Editorial luxury landing page. Emphasizes elegance, premium advisory feel, asymmetric layouts, and generous whitespace. Typography is distinctive with a classic serif for headings and a clean sans-serif for body. Color palette combines warm cream, dark forest green, and warm gold accents.",
+  "colors": {
+    "background": "#F9F6F0",
+    "surface": "#EBE4D5",
+    "surface_glass": "rgba(249, 246, 240, 0.8)",
+    "primary": "#1A362D",
+    "primary_hover": "#234237",
+    "accent": "#C8A97E",
+    "accent_hover": "#DCC09B",
+    "text_main": "#1A362D",
+    "text_muted": "#4A5D54",
+    "border": "#E2D8C6",
+    "border_gold": "#C8A97E"
+  },
+  "typography": {
+    "headings_font": "'Cormorant Garamond', serif",
+    "body_font": "'Outfit', sans-serif",
+    "h1": "text-5xl md:text-6xl+ font-light tracking-tight leading-none",
+    "h2": "text-3xl md:text-4xl font-normal tracking-tight",
+    "h3": "text-xl md:text-2xl font-normal",
+    "body": "text-base md:text-lg leading-relaxed text-[#4A5D54]",
+    "overline": "text-xs uppercase tracking-[0.2em] font-semibold text-[#C8A97E]"
+  },
+  "layout_spacing": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-24 md:py-32 lg:py-40",
+    "grid_gap": "gap-8 md:gap-12"
+  },
+  "components": {
+    "header": {
+      "style": "Glassmorphism navigation bar. sticky top-0 z-50 backdrop-blur-xl bg-[#F9F6F0]/80 border-b border-[#E2D8C6]/50",
+      "logo": "ARETION & Company in Cormorant Garamond, text-xl tracking-wide",
+      "links": "Outfit font, text-sm uppercase tracking-wider text-[#1A362D] hover:text-[#C8A97E] transition-colors"
+    },
+    "hero": {
+      "layout": "Asymmetric split layout. Left side: Text content. Right side: Elegant architecture image.",
+      "headline": "Meet Our Esteemed Healthcare Advisory Consultants",
+      "subheadline": "Expert guidance to elevate healthcare organizations and drive success.",
+      "cta_button": "bg-[#1A362D] text-[#F9F6F0] px-8 py-4 rounded-none hover:bg-[#234237] transition-all text-sm tracking-wider uppercase flex items-center gap-3"
+    },
+    "consultant_showcase": {
+      "layout": "CSS Grid bento/editorial style. e.g. grid-cols-1 md:grid-cols-2 lg:grid-cols-3. Generous gaps.",
+      "card_style": "Group relative overflow-hidden bg-transparent border border-transparent hover:border-[#E2D8C6] transition-colors duration-300 p-4",
+      "image_wrapper": "aspect-[3/4] overflow-hidden mb-6 relative",
+      "image_style": "object-cover w-full h-full grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out",
+      "details": "text-center or left-aligned with a subtle gold divider line above the specialization."
+    },
+    "cta_section": {
+      "style": "bg-[#1A362D] text-[#F9F6F0] py-32 px-6 text-center relative overflow-hidden",
+      "button": "bg-[#C8A97E] text-[#1A362D] px-10 py-5 rounded-none hover:bg-[#DCC09B] transition-all text-sm tracking-wider uppercase font-semibold"
+    },
+    "footer": {
+      "style": "bg-[#F9F6F0] border-t border-[#E2D8C6] py-24",
+      "layout": "Grid layout for links, contact info, and wordmark logo."
+    }
+  },
+  "media": {
+    "hero_image": {
+      "url": "https://images.unsplash.com/photo-1705909770198-7e83c24e1616?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwYXJjaGl0ZWN0dXJlJTIwb2ZmaWNlfGVufDB8fHx8MTc3ODk2NTA4MXww&ixlib=rb-4.1.0&q=85",
+      "description": "Elegant modern architecture office desk",
+      "category": "hero"
+    },
+    "consultants": [
+      {
+        "name": "Dr. Elena Rostova",
+        "specialization": "Healthcare Policy",
+        "url": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
+        "category": "consultant"
+      },
+      {
+        "name": "James Kensington",
+        "specialization": "Operational Efficiency",
+        "url": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
+        "category": "consultant"
+      },
+      {
+        "name": "Dr. Marcus Vance",
+        "specialization": "Clinical Strategy",
+        "url": "https://images.unsplash.com/photo-1637059824899-a441006a6875?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
+        "category": "consultant"
+      },
+      {
+        "name": "Sarah Lin",
+        "specialization": "Financial Guidance",
+        "url": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDB8fHx8MTc3ODk2NTA4NXww&ixlib=rb-4.1.0&q=85",
+        "category": "consultant"
+      },
+      {
+        "name": "Dr. Amira Tariq",
+        "specialization": "Digital Health Innovation",
+        "url": "https://images.unsplash.com/photo-1659353888906-adb3e0041693?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
+        "category": "consultant"
+      },
+      {
+        "name": "Arthur Pendelton",
+        "specialization": "Organizational Leadership",
+        "url": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDB8fHx8MTc3ODk2NTA4NXww&ixlib=rb-4.1.0&q=85",
+        "category": "consultant"
+      }
+    ]
+  },
+  "interactions": {
+    "hover_effects": "Subtle desaturation removal on consultant images. Smooth background color shifts on buttons. No harsh transformations, prioritize opacity and subtle scaling.",
+    "buttons": "Square edges (rounded-none) for an editorial/print feel. Buttons should have an internal border or an overline effect on hover."
+  },
+  "testing": {
+    "data_testid_requirement": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": "Use Lucide React for minimal icons if needed. Ensure Cormorant Garamond and Outfit fonts are imported via Google Fonts in index.css. Construct the page using Tailwind CSS, keeping the layout asymmetric, utilizing the provided color palette. The UI should feel like a high-end luxury editorial magazine, with generous whitespace and clear structural grids. Do not use generic Shadcn cards with rounded corners and shadows; instead, use flat, borderless or single-line bordered blocks with squared-off edges. Use Lucide icons only when absolutely necessary, keeping the interface minimal. Include data-testid attributes on all interactive elements. Follow the specified color palette meticulously."
+}
