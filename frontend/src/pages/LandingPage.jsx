@@ -7,7 +7,18 @@ import SiteFooter from "@/components/site/SiteFooter";
 
 export default function LandingPage() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+    // Remove third-party Emergent badge (inline-styled, so JS removal is required)
+    const removeBadge = () => {
+      const el = document.getElementById("emergent-badge");
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    };
+    removeBadge();
+    // Re-run in case it's re-injected
+    const t = setInterval(removeBadge, 800);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <main

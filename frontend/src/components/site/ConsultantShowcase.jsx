@@ -1,47 +1,62 @@
+import { Star } from "lucide-react";
+
+// 5 screenshots × 4 consultants each = 20 advisors
+const SHEET_1 =
+  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/79p4yg49_Screenshot%202026-05-17%20at%2000.17.30.png";
+const SHEET_2 =
+  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/pbrde1aq_Screenshot%202026-05-17%20at%2000.18.19.png";
+const SHEET_3 =
+  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/qlubxeq5_Screenshot%202026-05-17%20at%2000.18.29.png";
+const SHEET_4 =
+  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/x0sqa7zx_Screenshot%202026-05-17%20at%2000.18.36.png";
+const SHEET_5 =
+  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/8wi5tymd_Screenshot%202026-05-17%20at%2000.18.44.png";
+
 const CONSULTANTS = [
-  {
-    name: "Dr. Elena Rostova",
-    specialization: "Healthcare Policy",
-    location: "Geneva · Washington",
-    image:
-      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
-  },
-  {
-    name: "James Kensington",
-    specialization: "Operational Efficiency",
-    location: "London",
-    image:
-      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
-  },
-  {
-    name: "Dr. Marcus Vance",
-    specialization: "Clinical Strategy",
-    location: "Boston",
-    image:
-      "https://images.unsplash.com/photo-1637059824899-a441006a6875?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
-  },
-  {
-    name: "Sarah Lin",
-    specialization: "Financial Guidance",
-    location: "Singapore",
-    image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDB8fHx8MTc3ODk2NTA4NXww&ixlib=rb-4.1.0&q=85",
-  },
-  {
-    name: "Dr. Amira Tariq",
-    specialization: "Digital Health Innovation",
-    location: "Dubai",
-    image:
-      "https://images.unsplash.com/photo-1659353888906-adb3e0041693?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdCUyMGRvY3RvcnxlbnwwfHx8fDE3Nzg5NjUwODF8MA&ixlib=rb-4.1.0&q=85",
-  },
-  {
-    name: "Arthur Pendelton",
-    specialization: "Organizational Leadership",
-    location: "New York",
-    image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDB8fHx8MTc3ODk2NTA4NXww&ixlib=rb-4.1.0&q=85",
-  },
+  // Sheet 1
+  { name: "Bandar Mzahim", specialization: "Clinical Research Services", experience: 12, rating: 5, sheet: SHEET_1, col: 0 },
+  { name: "Khalid Almulhim", specialization: "Toxicology & Environmental Medicine", experience: 15, rating: 5, sheet: SHEET_1, col: 1 },
+  { name: "Bodor Alqaaed", specialization: "Telepsychology & Mental Health", experience: 4, rating: 5, sheet: SHEET_1, col: 2 },
+  { name: "Nidaa Bajow", specialization: "Strategy & Capacity Planning", experience: 17, rating: 5, sheet: SHEET_1, col: 3 },
+  // Sheet 2
+  { name: "Sharafaldeen Bin Nafisah", specialization: "Clinical Research Services", experience: 7, rating: 5, sheet: SHEET_2, col: 0 },
+  { name: "Samah Alsadah", specialization: "Telepsychology & Mental Health", experience: 14, rating: 4, sheet: SHEET_2, col: 1 },
+  { name: "Ansar Halayqa", specialization: "Telepsychology & Mental Health", experience: 10, rating: 4, sheet: SHEET_2, col: 2 },
+  { name: "Mona AlMofadda", specialization: "Healthcare Quality & Accreditation", experience: 8, rating: 3, sheet: SHEET_2, col: 3 },
+  // Sheet 3
+  { name: "Bodoor Ayman Tayeb", specialization: "Healthcare Quality & Accreditation", experience: 10, rating: 5, sheet: SHEET_3, col: 0 },
+  { name: "Hassan Farhat", specialization: "Clinical Research Services", experience: 17, rating: 5, sheet: SHEET_3, col: 1 },
+  { name: "Mohammed Badawy", specialization: "Clinical Research Services", experience: 12, rating: 5, sheet: SHEET_3, col: 2 },
+  { name: "Abdussalam Ali Alshehri", specialization: "Healthcare Legal Services", experience: 24, rating: 5, sheet: SHEET_3, col: 3 },
+  // Sheet 4
+  { name: "Dr. Naif Mohammad M Harthi", specialization: "Clinical Research Services", experience: 12, rating: 5, sheet: SHEET_4, col: 0 },
+  { name: "Heetaf Aloqaily", specialization: "Medical & Healthcare Event Services", experience: 6, rating: 5, sheet: SHEET_4, col: 1 },
+  { name: "Ateeq Omar Marzuq Almuwallad", specialization: "Clinical Research Services", experience: 12, rating: 5, sheet: SHEET_4, col: 2 },
+  { name: "Mohammed Sultan", specialization: "Clinical Research Services", experience: 21, rating: 5, sheet: SHEET_4, col: 3 },
+  // Sheet 5
+  { name: "Shahad Aldawsari", specialization: "Toxicology & Environmental Medicine", experience: 1, rating: 5, sheet: SHEET_5, col: 0 },
+  { name: "Zakaria Mani", specialization: "Clinical Research Services", experience: 18, rating: 5, sheet: SHEET_5, col: 1 },
+  { name: "Rawan Eskandarani", specialization: "Clinical Research Services", experience: 9, rating: 5, sheet: SHEET_5, col: 2 },
+  { name: "Shahnaz Alkhalil", specialization: "Healthcare Quality & Accreditation", experience: 16, rating: 5, sheet: SHEET_5, col: 3 },
 ];
+
+function RatingStars({ value }) {
+  return (
+    <span
+      className="inline-flex items-center gap-0.5"
+      aria-label={`${value} out of 5 rating`}
+    >
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star
+          key={i}
+          size={12}
+          className={i < value ? "fill-[#C8A97E] text-[#C8A97E]" : "text-[#C8A97E]/30"}
+          strokeWidth={1.5}
+        />
+      ))}
+    </span>
+  );
+}
 
 export default function ConsultantShowcase() {
   return (
@@ -80,31 +95,41 @@ export default function ConsultantShowcase() {
           </div>
         </div>
 
-        {/* Grid */}
+        {/* Grid — 4 across on lg */}
         <div
           data-testid="consultants-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-16 md:gap-y-24"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-14 md:gap-y-20"
         >
           {CONSULTANTS.map((c, idx) => (
             <article
-              key={c.name}
+              key={`${c.name}-${idx}`}
               data-testid={`consultant-card-${idx}`}
-              className={`consultant-card group ${idx % 2 === 1 ? "lg:translate-y-12" : ""}`}
+              className="consultant-card group"
             >
               <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#EBE4D5]">
+                {/* The source screenshots are 4-up rows (~2200×600), each slot:
+                    top ~67% = photo, bottom ~33% = text overlay.
+                    Scale the image to ~700% width so the photo region fills
+                    the 3:4 container, then shift left per column. */}
                 <img
-                  src={c.image}
+                  src={c.sheet}
                   alt={c.name}
-                  className="consultant-img w-full h-full object-cover"
                   loading="lazy"
+                  className="consultant-img absolute top-0 max-w-none select-none pointer-events-none"
+                  draggable={false}
+                  style={{
+                    width: "700%",
+                    height: "auto",
+                    left: `-${c.col * 175 + 37.5}%`,
+                  }}
                 />
                 {/* Index numeral */}
                 <span
-                  className="absolute top-4 left-4 text-[#F9F6F0]/90 mix-blend-difference"
+                  className="absolute top-3 left-3 text-[#F9F6F0] bg-[#1A362D]/55 backdrop-blur-sm px-2 py-1"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "1rem",
-                    fontWeight: 400,
+                    fontSize: "0.8rem",
+                    fontWeight: 500,
                     letterSpacing: "0.2em",
                   }}
                   aria-hidden="true"
@@ -113,28 +138,34 @@ export default function ConsultantShowcase() {
                 </span>
               </div>
 
-              <div className="mt-6 md:mt-8">
-                <div className="gold-divider mb-4" aria-hidden="true" />
+              <div className="mt-5 md:mt-6">
+                <div className="gold-divider mb-3" aria-hidden="true" />
                 <h3
                   data-testid={`consultant-name-${idx}`}
                   className="text-[#1A362D]"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "1.875rem",
+                    fontSize: "1.5rem",
                     fontWeight: 400,
                     lineHeight: 1.1,
                   }}
                 >
                   <span className="name-underline">{c.name}</span>
                 </h3>
-                <div className="mt-3 flex items-center justify-between gap-4">
+                <p
+                  data-testid={`consultant-spec-${idx}`}
+                  className="mt-2 text-sm text-[#4A5D54] leading-snug"
+                >
+                  {c.specialization}
+                </p>
+                <div className="mt-3 flex items-center justify-between gap-3">
                   <span
-                    data-testid={`consultant-spec-${idx}`}
-                    className="text-sm text-[#4A5D54] tracking-wide"
+                    data-testid={`consultant-experience-${idx}`}
+                    className="overline text-[#4A5D54]"
                   >
-                    {c.specialization}
+                    {c.experience} {c.experience === 1 ? "year" : "years"}
                   </span>
-                  <span className="overline text-[#C8A97E]">{c.location}</span>
+                  <RatingStars value={c.rating} />
                 </div>
               </div>
             </article>

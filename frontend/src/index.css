@@ -87,15 +87,15 @@ body {
 .delay-3 { animation-delay: 0.4s; }
 .delay-4 { animation-delay: 0.55s; }
 
-/* Consultant card grayscale on hover removal */
+/* Consultant card image: photo shows true color on hover; no transform scale
+   since the image is absolutely positioned with calibrated offsets. */
 .consultant-img {
-    filter: grayscale(25%) contrast(0.98);
-    transition: filter 700ms ease-out, transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+    filter: grayscale(20%) contrast(0.98);
+    transition: filter 700ms ease-out;
 }
 
 .consultant-card:hover .consultant-img {
     filter: grayscale(0%) contrast(1);
-    transform: scale(1.04);
 }
 
 .consultant-card .name-underline {
@@ -230,4 +230,9 @@ body {
     [data-debug-wrapper="true"] {
         display: contents !important;
     }
+}
+
+/* Hide the third-party Emergent badge per client request */
+#emergent-badge {
+    display: none !important;
 }

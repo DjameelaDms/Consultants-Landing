@@ -1,31 +1,32 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 
 const QUICK_LINKS = [
+  { label: "Home", href: "#top", id: "footer-link-home" },
+  { label: "ARETION Group", href: "https://aretion.co.uk/group-companies", id: "footer-link-group", external: true },
   { label: "Consultants", href: "#consultants", id: "footer-link-consultants" },
-  { label: "Approach", href: "#approach", id: "footer-link-approach" },
-  { label: "Insights", href: "#insights", id: "footer-link-insights" },
-  { label: "Privacy Policy", href: "#privacy", id: "footer-link-privacy" },
+  { label: "Contact", href: "https://aretion.co.uk/contact", id: "footer-link-contact-page", external: true },
+  { label: "Privacy Notice", href: "#privacy", id: "footer-link-privacy" },
   { label: "Terms of Service", href: "#terms", id: "footer-link-terms" },
 ];
 
-const SOCIAL = [
+const GROUP_COMPANIES = [
   {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/",
-    Icon: Linkedin,
-    id: "social-linkedin",
+    label: "ARETION Solutions",
+    href: "https://solutions.aretion.co.uk/",
+    id: "group-solutions",
+    note: "Critical Infrastructure Technology",
   },
   {
-    label: "Twitter",
-    href: "https://twitter.com/",
-    Icon: Twitter,
-    id: "social-twitter",
+    label: "ARETION Healthcare Consulting",
+    href: "https://aretion.org/",
+    id: "group-consulting",
+    note: "Strategic Advisory",
   },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/",
-    Icon: Instagram,
-    id: "social-instagram",
+    label: "ARETION Publishing Group",
+    href: "https://publishing.aretion.co.uk/",
+    id: "group-publishing",
+    note: "Peer-reviewed Journals",
   },
 ];
 
@@ -52,83 +53,141 @@ export default function SiteFooter() {
             >
               Aretion <span className="italic text-[#C8A97E]" style={{ fontWeight: 400 }}>&amp;</span> Company
             </h3>
-            <p className="max-w-xs text-sm text-[#4A5D54] leading-relaxed">
-              A private advisory firm serving the architecture of modern
-              healthcare — quietly, deliberately, since 2012.
+            <p className="max-w-sm text-sm text-[#4A5D54] leading-relaxed">
+              A UK-based group overseeing specialist entities in healthcare
+              technology, consulting and academic publishing. In healthcare
+              since 1986.
             </p>
           </div>
         </div>
 
         {/* Middle grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 py-14 md:py-20">
-          {/* Contact */}
+          {/* Offices */}
           <div className="md:col-span-5">
-            <span className="overline text-[#C8A97E]">Contact</span>
-            <ul className="mt-6 space-y-4">
-              <li className="flex items-start gap-3 text-[#1A362D]">
-                <Mail size={16} className="mt-1 text-[#C8A97E]" />
-                <a
-                  href="mailto:office@aretion.co"
-                  data-testid="footer-email"
-                  className="text-base hover:text-[#C8A97E] transition-colors"
-                >
-                  office@aretion.co
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-[#1A362D]">
-                <Phone size={16} className="mt-1 text-[#C8A97E]" />
-                <a
-                  href="tel:+12125550199"
-                  data-testid="footer-phone"
-                  className="text-base hover:text-[#C8A97E] transition-colors"
-                >
-                  +1 (212) 555-0199
-                </a>
-              </li>
-              <li className="flex items-start gap-3 text-[#4A5D54]">
-                <MapPin size={16} className="mt-1 text-[#C8A97E]" />
-                <span data-testid="footer-address" className="text-base">
-                  401 Park Avenue South, Floor 9 · New York, NY 10016
-                </span>
-              </li>
-            </ul>
+            <span className="overline text-[#C8A97E]">Offices</span>
+
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div>
+                <div className="flex items-start gap-3">
+                  <MapPin size={16} className="mt-1 text-[#C8A97E] shrink-0" />
+                  <div>
+                    <p
+                      className="text-[#1A362D] mb-1"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontSize: "1.15rem",
+                        fontWeight: 500,
+                      }}
+                    >
+                      London
+                    </p>
+                    <address
+                      data-testid="footer-address-london"
+                      className="not-italic text-sm text-[#4A5D54] leading-relaxed"
+                    >
+                      71–75 Shelton Street
+                      <br />
+                      Covent Garden
+                      <br />
+                      London, WC2H 9JQ
+                      <br />
+                      United Kingdom
+                    </address>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <div className="flex items-start gap-3">
+                  <MapPin size={16} className="mt-1 text-[#C8A97E] shrink-0" />
+                  <div>
+                    <p
+                      className="text-[#1A362D] mb-1"
+                      style={{
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontSize: "1.15rem",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Gulf
+                    </p>
+                    <address
+                      data-testid="footer-address-gulf"
+                      className="not-italic text-sm text-[#4A5D54] leading-relaxed"
+                    >
+                      Innovation Boulevard, Al Aqeeq
+                      <br />
+                      King Abdullah Financial District
+                      <br />
+                      Building 7229, 13519
+                    </address>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex items-start gap-3">
+              <Mail size={16} className="mt-1 text-[#C8A97E]" />
+              <a
+                href="mailto:post@aretion.co.uk"
+                data-testid="footer-email"
+                className="text-base text-[#1A362D] hover:text-[#C8A97E] transition-colors"
+              >
+                post@aretion.co.uk
+              </a>
+            </div>
           </div>
 
-          {/* Quick links */}
+          {/* Group companies */}
           <div className="md:col-span-4">
-            <span className="overline text-[#C8A97E]">Quick Links</span>
-            <ul className="mt-6 grid grid-cols-2 gap-y-3 gap-x-4">
-              {QUICK_LINKS.map((l) => (
-                <li key={l.href}>
+            <span className="overline text-[#C8A97E]">ARETION Group</span>
+            <ul className="mt-6 space-y-5">
+              {GROUP_COMPANIES.map((g) => (
+                <li key={g.id}>
                   <a
-                    href={l.href}
-                    data-testid={l.id}
-                    className="text-sm text-[#1A362D] hover:text-[#C8A97E] transition-colors uppercase tracking-[0.16em]"
+                    href={g.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-testid={g.id}
+                    className="group inline-flex flex-col"
                   >
-                    {l.label}
+                    <span className="inline-flex items-center gap-2 text-[#1A362D] group-hover:text-[#C8A97E] transition-colors">
+                      <span
+                        style={{
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontSize: "1.15rem",
+                          fontWeight: 500,
+                        }}
+                      >
+                        {g.label}
+                      </span>
+                      <ArrowUpRight size={14} className="opacity-60 group-hover:opacity-100" />
+                    </span>
+                    <span className="overline text-[#4A5D54] mt-1">
+                      {g.note}
+                    </span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Social */}
+          {/* Quick links */}
           <div className="md:col-span-3">
-            <span className="overline text-[#C8A97E]">Follow</span>
+            <span className="overline text-[#C8A97E]">Quick Links</span>
             <ul className="mt-6 flex flex-col gap-3">
-              {SOCIAL.map(({ label, href, Icon, id }) => (
-                <li key={id}>
+              {QUICK_LINKS.map((l) => (
+                <li key={l.id}>
                   <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-testid={id}
-                    className="inline-flex items-center gap-3 text-sm text-[#1A362D] hover:text-[#C8A97E] transition-colors group"
+                    href={l.href}
+                    {...(l.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
+                    data-testid={l.id}
+                    className="text-sm text-[#1A362D] hover:text-[#C8A97E] transition-colors uppercase tracking-[0.16em]"
                   >
-                    <Icon size={16} className="text-[#C8A97E]" />
-                    <span className="border-b border-transparent group-hover:border-[#C8A97E] pb-0.5">
-                      {label}
-                    </span>
+                    {l.label}
                   </a>
                 </li>
               ))}
@@ -145,7 +204,7 @@ export default function SiteFooter() {
             © {new Date().getFullYear()} Aretion &amp; Company. All rights reserved.
           </p>
           <p className="text-xs uppercase tracking-[0.2em] text-[#4A5D54]">
-            Discretion · Diligence · Distinction
+            Healthcare · Technology · Publishing
           </p>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function Hero({ mounted }) {
     <section
       id="top"
       data-testid="hero-section"
-      className="relative pt-32 md:pt-40 pb-20 md:pb-28 paper-grain"
+      className="relative pt-32 md:pt-40 pb-24 md:pb-32 paper-grain"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         {/* Top meta row */}
@@ -17,7 +17,7 @@ export default function Hero({ mounted }) {
           className={`flex items-center justify-between mb-12 md:mb-20 ${mounted ? "reveal-fade-up" : "opacity-0"}`}
         >
           <span className="overline text-[#C8A97E]" data-testid="hero-eyebrow">
-            Healthcare Advisory · Est. MMXII
+            Healthcare Advisory · Since 1986
           </span>
           <span className="hidden md:inline overline text-[#4A5D54]">
             Vol. 01 — Council of Advisors
@@ -102,7 +102,7 @@ export default function Hero({ mounted }) {
                 className="absolute bottom-6 left-6 right-6 md:left-8 md:right-8 bg-[#F9F6F0]/95 backdrop-blur-md border border-[#E2D8C6] p-5 md:p-6"
               >
                 <div className="flex items-baseline justify-between gap-4">
-                  <span className="overline text-[#C8A97E]">Active Advisory</span>
+                  <span className="overline text-[#C8A97E]">The Council</span>
                   <span
                     className="text-[#1A362D]"
                     style={{
@@ -112,43 +112,16 @@ export default function Hero({ mounted }) {
                       lineHeight: 1,
                     }}
                   >
-                    240<span className="text-[#C8A97E]">+</span>
+                    20<span className="text-[#C8A97E]">+</span>
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-[#4A5D54]">
-                  Health systems, payors &amp; policy bodies served across 14 countries.
+                  Senior healthcare advisors across strategy, clinical research,
+                  quality &amp; digital health.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom indicators */}
-        <div
-          data-testid="hero-stats"
-          className={`mt-20 md:mt-28 grid grid-cols-2 md:grid-cols-4 gap-y-10 md:gap-x-10 border-t border-[#E2D8C6] pt-12 ${mounted ? "reveal-fade-up delay-4" : "opacity-0"}`}
-        >
-          {[
-            { k: "12 yrs", v: "Average Advisor Tenure" },
-            { k: "$3.4B", v: "Capital Strategy Guided" },
-            { k: "98%", v: "Engagement Continuation" },
-            { k: "14", v: "Countries of Practice" },
-          ].map((s) => (
-            <div key={s.v} className="flex flex-col gap-2">
-              <span
-                className="text-[#1A362D]"
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "2.25rem",
-                  fontWeight: 400,
-                  lineHeight: 1,
-                }}
-              >
-                {s.k}
-              </span>
-              <span className="overline text-[#4A5D54]">{s.v}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
