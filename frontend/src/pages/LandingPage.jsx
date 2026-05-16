@@ -9,15 +9,24 @@ export default function LandingPage() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
-    // Remove third-party Emergent badge (inline-styled, so JS removal is required)
+    // Remove third-party Emergent badge (inline-styled, so JS removal is required).
+    // Stop the interval once we've successfully removed it.
+    let attempts = 0;
+    let t = null;
     const removeBadge = () => {
       const el = document.getElementById("emergent-badge");
-      if (el && el.parentNode) el.parentNode.removeChild(el);
+      if (el && el.parentNode) {
+        el.parentNode.removeChild(el);
+        if (t) clearInterval(t);
+      } else if (++attempts > 20 && t) {
+        clearInterval(t);
+      }
     };
     removeBadge();
-    // Re-run in case it's re-injected
-    const t = setInterval(removeBadge, 800);
-    return () => clearInterval(t);
+    t = setInterval(removeBadge, 500);
+    return () => {
+      if (t) clearInterval(t);
+    };
   }, []);
 
   return (

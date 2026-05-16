@@ -132,7 +132,7 @@ export default function ConsultantShowcase() {
                     style={{
                       width: "1000%",
                       height: "auto",
-                      top: "-14%",
+                      top: "-9%",
                       left: `-${c.col * 250 + 75}%`,
                     }}
                   />
