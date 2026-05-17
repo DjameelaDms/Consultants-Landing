@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { Crown } from "./Ornament";
 
 const NAV_LINKS = [
   { label: "Consultants", href: "#consultants", testid: "nav-consultants" },
@@ -28,6 +29,13 @@ export default function SiteHeader() {
           : "backdrop-blur-md bg-[#F9F6F0]/40 border-b border-transparent"
       }`}
     >
+      {/* Royal-patronage micro-bar */}
+      <div className="hidden md:flex items-center justify-center gap-3 py-1.5 bg-[#0C2039] text-[#F9F6F0]/85 text-[10px] uppercase tracking-[0.32em]" data-testid="royal-bar">
+        <Crown size={12} className="text-[#C8A97E]" />
+        <span>By Appointment · A British Healthcare Advisory · Est. MDCCCLXXXVI</span>
+        <Crown size={12} className="text-[#C8A97E]" />
+      </div>
+
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Brand logo — uploaded asset */}
@@ -38,12 +46,12 @@ export default function SiteHeader() {
             aria-label="Aretion & Company"
           >
             <img
-              src="https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/ij51jz03_A_Header.jpg"
+              src="https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/6sd18gkg_A_Logo-39.png"
               alt="Aretion & Company"
-              className="h-9 md:h-11 w-auto select-none"
+              className="h-10 md:h-12 w-auto select-none"
               draggable={false}
               data-testid="brand-logo-img"
-              style={{ objectFit: "cover", objectPosition: "right center" }}
+              style={{ objectFit: "contain", objectPosition: "center" }}
             />
           </a>
 

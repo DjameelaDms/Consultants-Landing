@@ -1,7 +1,8 @@
 import { ArrowDownRight } from "lucide-react";
+import { OrnamentDivider, Crown } from "./Ornament";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1767460775310-025fcba42aa9?w=1400&h=1800&fit=crop&q=85";
+  "https://images.unsplash.com/photo-1775601258812-b8d41b699eab?w=1400&h=1800&fit=crop&q=85";
 
 export default function Hero({ mounted }) {
   return (
@@ -16,11 +17,12 @@ export default function Hero({ mounted }) {
           data-testid="hero-meta"
           className={`flex items-center justify-between mb-12 md:mb-20 ${mounted ? "reveal-fade-up" : "opacity-0"}`}
         >
-          <span className="overline text-[#C8A97E]" data-testid="hero-eyebrow">
-            Healthcare Advisory · Since 1986
+          <span className="overline text-[#C8A97E] flex items-center gap-2" data-testid="hero-eyebrow">
+            <Crown size={14} className="text-[#C8A97E]" />
+            Healthcare Advisory · By Appointment · Est. 1986
           </span>
           <span className="hidden md:inline overline text-[#4A5D54]">
-            Vol. 01 — Council of Advisors
+            Vol. I — Council of Advisers
           </span>
         </div>
 
@@ -28,6 +30,7 @@ export default function Hero({ mounted }) {
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
           {/* Headline column */}
           <div className="col-span-12 lg:col-span-7 xl:col-span-7">
+            <OrnamentDivider className={`w-44 h-5 -ml-1 mb-5 ${mounted ? "reveal-fade-up delay-1" : "opacity-0"}`} />
             <h1
               data-testid="hero-headline"
               className={`text-[#0C2039] leading-[0.95] tracking-tight ${mounted ? "reveal-fade-up delay-1" : "opacity-0"}`}
@@ -54,9 +57,9 @@ export default function Hero({ mounted }) {
               data-testid="hero-subheadline"
               className={`mt-10 md:mt-14 max-w-xl text-[#4A5D54] leading-relaxed text-base md:text-lg ${mounted ? "reveal-fade-up delay-2" : "opacity-0"}`}
             >
-              Expert guidance to elevate healthcare organizations and drive
-              success — strategy, operations, policy and capital, delivered by
-              a curated council of senior advisors.
+              Expert guidance to elevate healthcare organisations and drive
+              success — strategy, operations, policy and capital, delivered
+              by a curated council of senior advisers.
             </p>
 
             <div
@@ -116,8 +119,8 @@ export default function Hero({ mounted }) {
                   </span>
                 </div>
                 <p className="mt-2 text-sm text-[#4A5D54]">
-                  Senior healthcare advisors across strategy, clinical research,
-                  quality &amp; digital health.
+                  Twenty senior healthcare advisers across strategy, clinical
+                  research, quality &amp; digital health.
                 </p>
               </div>
             </div>

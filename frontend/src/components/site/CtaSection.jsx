@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { Crown, OrnamentDivider } from "./Ornament";
 
 export default function CtaSection() {
   return (
@@ -26,6 +27,10 @@ export default function CtaSection() {
       </div>
 
       <div className="relative max-w-[1100px] mx-auto px-6 md:px-12 text-center">
+        <div className="flex flex-col items-center gap-4 mb-4">
+          <Crown size={22} className="text-[#C8A97E]" />
+          <OrnamentDivider className="w-44 h-5" />
+        </div>
         <span className="overline text-[#C8A97E]" data-testid="cta-eyebrow">
           — The Invitation
         </span>
@@ -50,8 +55,9 @@ export default function CtaSection() {
           data-testid="cta-subheading"
           className="mt-8 md:mt-10 max-w-2xl mx-auto text-[#F9F6F0]/70 leading-relaxed text-base md:text-lg"
         >
-          Whether you lead a hospital network, payor, or emerging health venture
-          — gain access to our advisory council and bespoke engagement framework.
+          Whether you lead a hospital network, payor, or an emerging health
+          venture — gain access to our advisory council and bespoke
+          engagement framework.
         </p>
 
         <div className="mt-12 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-8">

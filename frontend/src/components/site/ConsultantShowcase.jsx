@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { OrnamentDivider } from "./Ornament";
 
 // One image per consultant — sourced directly from platform.aretion.org
 // (mhtml export verified: each consultant has their own portrait URL).
 const CONSULTANTS = [
   {
     name: "Bandar Mzahim",
-    specialization: "Clinical Research Services",
+    specialization: "Disaster Management Consulting",
     experience: 12,
     image:
       "https://platform.aretion.org/uploads/consultants/1777375688_Screenshot%202026-04-28%20at%2014.26.34.png",
@@ -34,7 +35,7 @@ const CONSULTANTS = [
   },
   {
     name: "Sharafaldeen Bin Nafisah",
-    specialization: "Clinical Research Services",
+    specialization: "Disaster Management Consulting",
     experience: 7,
     image:
       "https://platform.aretion.org/uploads/consultants/1777375438_image2.jpeg",
@@ -76,7 +77,7 @@ const CONSULTANTS = [
   },
   {
     name: "Rawan Eskandarani",
-    specialization: "Clinical Research Services",
+    specialization: "Medical & Healthcare Event Services",
     experience: 9,
     image:
       "https://platform.aretion.org/uploads/consultants/1778238703_1000238358.jpg",
@@ -104,7 +105,7 @@ const CONSULTANTS = [
   },
   {
     name: "Mohammed Badawy",
-    specialization: "Clinical Research Services",
+    specialization: "Disaster Management Consulting",
     experience: 12,
     image:
       "https://platform.aretion.org/uploads/consultants/1778384887_aaa.jpg",
@@ -117,7 +118,7 @@ const CONSULTANTS = [
       "https://platform.aretion.org/uploads/consultants/1778415849_1778415811_1000002212.jpg",
   },
   {
-    name: "Dr. Naif Mohammad M Harthi",
+    name: "Naif Mohammad M Harthi",
     specialization: "Clinical Research Services",
     experience: 12,
     image:
@@ -202,7 +203,8 @@ export default function ConsultantShowcase() {
           <div className="col-span-12 md:col-span-4">
             <span className="overline text-[#C8A97E]">— The Council</span>
             <p className="hidden md:block mt-6 text-sm text-[#4A5D54]/80 max-w-[18ch] leading-relaxed">
-              20 advisors. 9 disciplines. One discreet standard of practice.
+              Twenty advisers. Nine disciplines. One discreet standard
+              of practice.
             </p>
           </div>
           <div className="col-span-12 md:col-span-8">
@@ -215,14 +217,14 @@ export default function ConsultantShowcase() {
                 fontSize: "clamp(2rem, 4.5vw, 4rem)",
               }}
             >
-              A curated council of advisors,
+              A curated council of advisers,
               <br />
               <span className="italic" style={{ fontWeight: 400 }}>
                 each a quiet authority in their field.
               </span>
             </h2>
             <p className="mt-6 max-w-2xl text-[#4A5D54] leading-relaxed text-base md:text-lg">
-              Hand-selected for their depth, integrity, and operational
+              Hand-selected for their depth, integrity and operational
               fluency — our consultants partner discreetly with healthcare
               leadership teams worldwide.
             </p>
@@ -310,7 +312,7 @@ export default function ConsultantShowcase() {
                 <div className="flex items-center gap-3 mb-3">
                   <span className="gold-divider" aria-hidden="true" />
                   <span className="overline text-[#4A5D54]">
-                    Senior Advisor
+                    Senior Adviser
                   </span>
                 </div>
                 <h3
@@ -346,10 +348,9 @@ export default function ConsultantShowcase() {
         </div>
 
         {/* Editorial divider line */}
-        <div className="mt-20 md:mt-28 flex items-center gap-6">
-          <div className="h-px flex-1 bg-[#E2D8C6]" />
+        <div className="mt-20 md:mt-28 flex flex-col items-center gap-4">
+          <OrnamentDivider className="w-full max-w-[420px] h-7" />
           <span className="divider-word text-lg md:text-xl">in confidence</span>
-          <div className="h-px flex-1 bg-[#E2D8C6]" />
         </div>
       </div>
     </section>
