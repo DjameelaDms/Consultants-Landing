@@ -94,7 +94,7 @@ const CONSULTANTS = [
     specialization: "Healthcare Quality & Accreditation",
     experience: 10,
     image:
-      "https://platform.aretion.org/uploads/consultants/1778324159_em%20pic.jpg",
+      "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/3f14zizr_623180064_18405798247135146_4947904528646073156_n.jpeg",
   },
   {
     name: "Hassan Farhat",
