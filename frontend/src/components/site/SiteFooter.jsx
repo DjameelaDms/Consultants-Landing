@@ -1,30 +1,30 @@
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Twitter, Instagram } from "lucide-react";
 
 const QUICK_LINKS = [
   { label: "Home", href: "#top", id: "footer-link-home" },
-  { label: "ARETION Group", href: "https://aretion.co.uk/group-companies", id: "footer-link-group", external: true },
   { label: "Consultants", href: "#consultants", id: "footer-link-consultants" },
+  { label: "Services", href: "https://aretion.org/services/", id: "footer-link-services", external: true },
   { label: "Contact", href: "https://aretion.co.uk/contact", id: "footer-link-contact-page", external: true },
 ];
 
-const GROUP_COMPANIES = [
+const SOCIAL = [
   {
-    label: "ARETION Solutions",
-    href: "https://solutions.aretion.co.uk/",
-    id: "group-solutions",
-    note: "Critical Infrastructure Technology",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    Icon: Linkedin,
+    id: "social-linkedin",
   },
   {
-    label: "ARETION Healthcare Consulting",
-    href: "https://aretion.org/",
-    id: "group-consulting",
-    note: "Strategic Advisory",
+    label: "Twitter",
+    href: "https://twitter.com/",
+    Icon: Twitter,
+    id: "social-twitter",
   },
   {
-    label: "ARETION Publishing Group",
-    href: "https://publishing.aretion.co.uk/",
-    id: "group-publishing",
-    note: "Peer-reviewed Journals",
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    Icon: Instagram,
+    id: "social-instagram",
   },
 ];
 
@@ -137,33 +137,22 @@ export default function SiteFooter() {
             </div>
           </div>
 
-          {/* Group companies */}
+          {/* Follow / Social */}
           <div className="md:col-span-4">
-            <span className="overline text-[#C8A97E]">ARETION Group</span>
-            <ul className="mt-6 space-y-5">
-              {GROUP_COMPANIES.map((g) => (
-                <li key={g.id}>
+            <span className="overline text-[#C8A97E]">Follow</span>
+            <ul className="mt-6 flex flex-col gap-3">
+              {SOCIAL.map(({ label, href, Icon, id }) => (
+                <li key={id}>
                   <a
-                    href={g.href}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    data-testid={g.id}
-                    className="group inline-flex flex-col"
+                    data-testid={id}
+                    className="inline-flex items-center gap-3 text-sm text-[#0C2039] hover:text-[#C8A97E] transition-colors group"
                   >
-                    <span className="inline-flex items-center gap-2 text-[#0C2039] group-hover:text-[#C8A97E] transition-colors">
-                      <span
-                        style={{
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontSize: "1.15rem",
-                          fontWeight: 500,
-                        }}
-                      >
-                        {g.label}
-                      </span>
-                      <ArrowUpRight size={14} className="opacity-60 group-hover:opacity-100" />
-                    </span>
-                    <span className="overline text-[#4A5D54] mt-1">
-                      {g.note}
+                    <Icon size={16} className="text-[#C8A97E]" />
+                    <span className="border-b border-transparent group-hover:border-[#C8A97E] pb-0.5">
+                      {label}
                     </span>
                   </a>
                 </li>

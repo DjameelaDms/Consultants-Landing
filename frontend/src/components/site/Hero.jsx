@@ -57,7 +57,7 @@ export default function Hero({ mounted }) {
             >
               Meet Our{" "}
               <span className="italic text-[#0C2039]" style={{ fontWeight: 400 }}>
-                Esteemed
+                Honoured
               </span>
               <br />
               Healthcare Advisory
