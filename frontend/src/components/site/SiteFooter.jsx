@@ -5,8 +5,6 @@ const QUICK_LINKS = [
   { label: "ARETION Group", href: "https://aretion.co.uk/group-companies", id: "footer-link-group", external: true },
   { label: "Consultants", href: "#consultants", id: "footer-link-consultants" },
   { label: "Contact", href: "https://aretion.co.uk/contact", id: "footer-link-contact-page", external: true },
-  { label: "Privacy Notice", href: "#privacy", id: "footer-link-privacy" },
-  { label: "Terms of Service", href: "#terms", id: "footer-link-terms" },
 ];
 
 const GROUP_COMPANIES = [
@@ -43,7 +41,7 @@ export default function SiteFooter() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h3
               data-testid="footer-wordmark"
-              className="text-[#1A362D] leading-none"
+              className="text-[#0C2039] leading-none"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 300,
@@ -73,7 +71,7 @@ export default function SiteFooter() {
                   <MapPin size={16} className="mt-1 text-[#C8A97E] shrink-0" />
                   <div>
                     <p
-                      className="text-[#1A362D] mb-1"
+                      className="text-[#0C2039] mb-1"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontSize: "1.15rem",
@@ -103,7 +101,7 @@ export default function SiteFooter() {
                   <MapPin size={16} className="mt-1 text-[#C8A97E] shrink-0" />
                   <div>
                     <p
-                      className="text-[#1A362D] mb-1"
+                      className="text-[#0C2039] mb-1"
                       style={{
                         fontFamily: "'Cormorant Garamond', serif",
                         fontSize: "1.15rem",
@@ -132,7 +130,7 @@ export default function SiteFooter() {
               <a
                 href="mailto:post@aretion.co.uk"
                 data-testid="footer-email"
-                className="text-base text-[#1A362D] hover:text-[#C8A97E] transition-colors"
+                className="text-base text-[#0C2039] hover:text-[#C8A97E] transition-colors"
               >
                 post@aretion.co.uk
               </a>
@@ -152,7 +150,7 @@ export default function SiteFooter() {
                     data-testid={g.id}
                     className="group inline-flex flex-col"
                   >
-                    <span className="inline-flex items-center gap-2 text-[#1A362D] group-hover:text-[#C8A97E] transition-colors">
+                    <span className="inline-flex items-center gap-2 text-[#0C2039] group-hover:text-[#C8A97E] transition-colors">
                       <span
                         style={{
                           fontFamily: "'Cormorant Garamond', serif",
@@ -185,7 +183,7 @@ export default function SiteFooter() {
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
                     data-testid={l.id}
-                    className="text-sm text-[#1A362D] hover:text-[#C8A97E] transition-colors uppercase tracking-[0.16em]"
+                    className="text-sm text-[#0C2039] hover:text-[#C8A97E] transition-colors uppercase tracking-[0.16em]"
                   >
                     {l.label}
                   </a>

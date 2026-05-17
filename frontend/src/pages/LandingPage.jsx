@@ -32,7 +32,7 @@ export default function LandingPage() {
   return (
     <main
       data-testid="landing-page"
-      className="min-h-screen bg-[#F9F6F0] text-[#1A362D] overflow-x-hidden"
+      className="min-h-screen bg-[#F9F6F0] text-[#0C2039] overflow-x-hidden"
       style={{ fontFamily: "'Outfit', sans-serif" }}
     >
       <SiteHeader />

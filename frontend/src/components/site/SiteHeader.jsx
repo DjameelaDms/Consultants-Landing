@@ -30,23 +30,21 @@ export default function SiteHeader() {
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="flex items-center justify-between h-20 md:h-24">
-          {/* Wordmark logo */}
+          {/* Brand logo — uploaded asset */}
           <a
             href="#top"
             data-testid="brand-logo"
             className="flex items-center gap-3 group"
-            aria-label="ARETION & Company"
+            aria-label="Aretion & Company"
           >
-            <span
-              className="inline-block w-2 h-2 rounded-full bg-[#C8A97E] group-hover:scale-125 transition-transform duration-500"
-              aria-hidden="true"
+            <img
+              src="https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/ij51jz03_A_Header.jpg"
+              alt="Aretion & Company"
+              className="h-9 md:h-11 w-auto select-none"
+              draggable={false}
+              data-testid="brand-logo-img"
+              style={{ objectFit: "cover", objectPosition: "right center" }}
             />
-            <span
-              className="text-[#1A362D] text-lg md:text-xl tracking-[0.18em] uppercase"
-              style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}
-            >
-              Aretion <span className="text-[#C8A97E] italic normal-case tracking-normal" style={{ fontWeight: 400 }}>&amp;</span> Company
-            </span>
           </a>
 
           {/* Desktop nav */}
@@ -56,7 +54,7 @@ export default function SiteHeader() {
                 key={link.href}
                 href={link.href}
                 data-testid={link.testid}
-                className="text-[11px] uppercase tracking-[0.22em] text-[#1A362D] hover:text-[#C8A97E] transition-colors duration-300 relative group"
+                className="text-[11px] uppercase tracking-[0.22em] text-[#0C2039] hover:text-[#C8A97E] transition-colors duration-300 relative group"
               >
                 {link.label}
                 <span className="absolute left-0 -bottom-1 h-px w-0 bg-[#C8A97E] group-hover:w-full transition-all duration-500" />
@@ -71,7 +69,7 @@ export default function SiteHeader() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="header-cta-button"
-              className="hidden md:inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[#F9F6F0] bg-[#1A362D] hover:bg-[#234237] transition-colors duration-300 px-5 py-3"
+              className="hidden md:inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[#F9F6F0] bg-[#0C2039] hover:bg-[#16335E] transition-colors duration-300 px-5 py-3"
             >
               Join Platform
               <span aria-hidden="true">→</span>
@@ -80,7 +78,7 @@ export default function SiteHeader() {
               type="button"
               data-testid="mobile-menu-toggle"
               onClick={() => setOpen((v) => !v)}
-              className="md:hidden text-[#1A362D] p-2"
+              className="md:hidden text-[#0C2039] p-2"
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
             >
@@ -101,7 +99,7 @@ export default function SiteHeader() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 data-testid={`mobile-${link.testid}`}
-                className="text-sm uppercase tracking-[0.22em] text-[#1A362D] hover:text-[#C8A97E]"
+                className="text-sm uppercase tracking-[0.22em] text-[#0C2039] hover:text-[#C8A97E]"
               >
                 {link.label}
               </a>
@@ -111,7 +109,7 @@ export default function SiteHeader() {
               target="_blank"
               rel="noopener noreferrer"
               data-testid="mobile-cta-button"
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[#F9F6F0] bg-[#1A362D] px-5 py-3 w-fit"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[#F9F6F0] bg-[#0C2039] px-5 py-3 w-fit"
             >
               Join Platform →
             </a>

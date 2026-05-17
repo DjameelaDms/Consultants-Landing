@@ -208,7 +208,7 @@ export default function ConsultantShowcase() {
           <div className="col-span-12 md:col-span-8">
             <h2
               data-testid="consultants-heading"
-              className="text-[#1A362D] leading-[1.05]"
+              className="text-[#0C2039] leading-[1.05]"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 300,
@@ -286,14 +286,14 @@ export default function ConsultantShowcase() {
                   className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background:
-                      "linear-gradient(180deg, rgba(26,54,45,0) 0%, rgba(26,54,45,0.55) 100%)",
+                      "linear-gradient(180deg, rgba(12,32,57,0) 0%, rgba(12,32,57,0.55) 100%)",
                   }}
                 />
 
                 {/* Specialty chip — slides in from bottom on hover */}
                 <div className="consultant-chip absolute left-3 right-3 md:left-4 md:right-4 bottom-3 md:bottom-4 z-10 pointer-events-none">
                   <div className="flex items-center justify-between gap-3 backdrop-blur-md bg-[#F9F6F0]/85 border border-[#E2D8C6] px-3 py-2">
-                    <span className="overline text-[#1A362D] truncate">
+                    <span className="overline text-[#0C2039] truncate">
                       {c.specialization}
                     </span>
                     <ArrowUpRight
@@ -315,7 +315,7 @@ export default function ConsultantShowcase() {
                 </div>
                 <h3
                   data-testid={`consultant-name-${idx}`}
-                  className="text-[#1A362D]"
+                  className="text-[#0C2039]"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
                     fontSize: "1.55rem",

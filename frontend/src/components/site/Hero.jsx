@@ -1,7 +1,7 @@
 import { ArrowDownRight } from "lucide-react";
 
 const HERO_IMAGE =
-  "https://images.unsplash.com/photo-1705909770198-7e83c24e1616?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHwzfHxlbGVnYW50JTIwYXJjaGl0ZWN0dXJlJTIwb2ZmaWNlfGVufDB8fHx8MTc3ODk2NTA4MXww&ixlib=rb-4.1.0&q=85";
+  "https://images.unsplash.com/photo-1767460775310-025fcba42aa9?w=1400&h=1800&fit=crop&q=85";
 
 export default function Hero({ mounted }) {
   return (
@@ -30,7 +30,7 @@ export default function Hero({ mounted }) {
           <div className="col-span-12 lg:col-span-7 xl:col-span-7">
             <h1
               data-testid="hero-headline"
-              className={`text-[#1A362D] leading-[0.95] tracking-tight ${mounted ? "reveal-fade-up delay-1" : "opacity-0"}`}
+              className={`text-[#0C2039] leading-[0.95] tracking-tight ${mounted ? "reveal-fade-up delay-1" : "opacity-0"}`}
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontWeight: 300,
@@ -38,7 +38,7 @@ export default function Hero({ mounted }) {
               }}
             >
               Meet Our{" "}
-              <span className="italic text-[#1A362D]" style={{ fontWeight: 400 }}>
+              <span className="italic text-[#0C2039]" style={{ fontWeight: 400 }}>
                 Esteemed
               </span>
               <br />
@@ -67,7 +67,7 @@ export default function Hero({ mounted }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-cta-primary"
-                className="btn-primary inline-flex items-center gap-3 bg-[#1A362D] text-[#F9F6F0] px-8 py-4 text-[11px] uppercase tracking-[0.24em]"
+                className="btn-primary inline-flex items-center gap-3 bg-[#0C2039] text-[#F9F6F0] px-8 py-4 text-[11px] uppercase tracking-[0.24em]"
               >
                 <span>Join Our Consulting Platform</span>
                 <ArrowDownRight size={16} className="relative z-10" />
@@ -75,7 +75,7 @@ export default function Hero({ mounted }) {
               <a
                 href="#consultants"
                 data-testid="hero-cta-secondary"
-                className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#1A362D] border-b border-[#1A362D] pb-1 hover:text-[#C8A97E] hover:border-[#C8A97E] transition-colors duration-300"
+                className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#0C2039] border-b border-[#0C2039] pb-1 hover:text-[#C8A97E] hover:border-[#C8A97E] transition-colors duration-300"
               >
                 <span>Meet the Council</span>
                 <span aria-hidden="true">↓</span>
@@ -91,11 +91,11 @@ export default function Hero({ mounted }) {
             >
               <img
                 src={HERO_IMAGE}
-                alt="Elegant advisory environment"
+                alt="19th-century Victorian luxury palace interior"
                 className="w-full h-full object-cover slow-zoom"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1A362D]/30 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C2039]/30 via-transparent to-transparent" />
               {/* Floating credential card */}
               <div
                 data-testid="hero-credential"
@@ -104,7 +104,7 @@ export default function Hero({ mounted }) {
                 <div className="flex items-baseline justify-between gap-4">
                   <span className="overline text-[#C8A97E]">The Council</span>
                   <span
-                    className="text-[#1A362D]"
+                    className="text-[#0C2039]"
                     style={{
                       fontFamily: "'Cormorant Garamond', serif",
                       fontSize: "2.25rem",

@@ -10,7 +10,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #F9F6F0;
-    color: #1A362D;
+    color: #0C2039;
 }
 
 ::selection {
@@ -92,17 +92,17 @@ body {
    gold frame and editorial caption chip with refined motion. */
 
 .consultant-photo {
-    background-color: #1A362D;
+    background-color: #0C2039;
     box-shadow:
         0 1px 0 rgba(200, 169, 126, 0.0),
-        0 18px 40px -28px rgba(26, 54, 45, 0.35);
+        0 18px 40px -28px rgba(12, 32, 57, 0.35);
     transition: box-shadow 700ms ease-out;
 }
 
 .consultant-card.in-view:hover .consultant-photo {
     box-shadow:
         0 1px 0 rgba(200, 169, 126, 0.55),
-        0 28px 60px -28px rgba(26, 54, 45, 0.55);
+        0 28px 60px -28px rgba(12, 32, 57, 0.55);
 }
 
 /* Entrance mask: clip-path reveal upward, plus the image starts gently
@@ -242,7 +242,7 @@ body {
 }
 
 .btn-primary:hover {
-    color: #1A362D !important;
+    color: #0C2039 !important;
 }
 
 .btn-gold {
@@ -320,7 +320,7 @@ body {
 @layer base {
     body {
         background-color: #F9F6F0;
-        color: #1A362D;
+        color: #0C2039;
     }
 }
 

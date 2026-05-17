@@ -5,7 +5,7 @@ export default function CtaSection() {
     <section
       id="approach"
       data-testid="cta-section"
-      className="relative bg-[#1A362D] text-[#F9F6F0] py-24 md:py-36 lg:py-44 overflow-hidden"
+      className="relative bg-[#0C2039] text-[#F9F6F0] py-24 md:py-36 lg:py-44 overflow-hidden"
     >
       {/* Decorative serif backdrop */}
       <div
@@ -60,7 +60,7 @@ export default function CtaSection() {
             target="_blank"
             rel="noopener noreferrer"
             data-testid="main-cta-button"
-            className="btn-gold inline-flex items-center gap-3 bg-[#C8A97E] text-[#1A362D] px-10 py-5 text-[11px] uppercase tracking-[0.28em] font-semibold"
+            className="btn-gold inline-flex items-center gap-3 bg-[#C8A97E] text-[#0C2039] px-10 py-5 text-[11px] uppercase tracking-[0.28em] font-semibold"
           >
             <span>Join Our Consulting Platform Today</span>
             <ArrowUpRight size={16} className="relative z-10" />
