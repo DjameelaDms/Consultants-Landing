@@ -1,43 +1,149 @@
 import { useEffect, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 
-// 5 screenshots × 4 consultants each = 20 advisors
-const SHEET_1 =
-  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/79p4yg49_Screenshot%202026-05-17%20at%2000.17.30.png";
-const SHEET_2 =
-  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/pbrde1aq_Screenshot%202026-05-17%20at%2000.18.19.png";
-const SHEET_3 =
-  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/qlubxeq5_Screenshot%202026-05-17%20at%2000.18.29.png";
-const SHEET_4 =
-  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/x0sqa7zx_Screenshot%202026-05-17%20at%2000.18.36.png";
-const SHEET_5 =
-  "https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/8wi5tymd_Screenshot%202026-05-17%20at%2000.18.44.png";
-
+// One image per consultant — sourced directly from platform.aretion.org
+// (mhtml export verified: each consultant has their own portrait URL).
 const CONSULTANTS = [
-  // Sheet 1
-  { name: "Bandar Mzahim", specialization: "Clinical Research Services", experience: 12, sheet: SHEET_1, col: 0 },
-  { name: "Khalid Almulhim", specialization: "Toxicology & Environmental Medicine", experience: 15, sheet: SHEET_1, col: 1 },
-  { name: "Bodor Alqaaed", specialization: "Telepsychology & Mental Health", experience: 4, sheet: SHEET_1, col: 2 },
-  { name: "Nidaa Bajow", specialization: "Strategy & Capacity Planning", experience: 17, sheet: SHEET_1, col: 3 },
-  // Sheet 2
-  { name: "Sharafaldeen Bin Nafisah", specialization: "Clinical Research Services", experience: 7, sheet: SHEET_2, col: 0 },
-  { name: "Samah Alsadah", specialization: "Telepsychology & Mental Health", experience: 14, sheet: SHEET_2, col: 1 },
-  { name: "Ansar Halayqa", specialization: "Telepsychology & Mental Health", experience: 10, sheet: SHEET_2, col: 2 },
-  { name: "Mona AlMofadda", specialization: "Healthcare Quality & Accreditation", experience: 8, sheet: SHEET_2, col: 3 },
-  // Sheet 3
-  { name: "Bodoor Ayman Tayeb", specialization: "Healthcare Quality & Accreditation", experience: 10, sheet: SHEET_3, col: 0 },
-  { name: "Hassan Farhat", specialization: "Clinical Research Services", experience: 17, sheet: SHEET_3, col: 1 },
-  { name: "Mohammed Badawy", specialization: "Clinical Research Services", experience: 12, sheet: SHEET_3, col: 2 },
-  { name: "Abdussalam Ali Alshehri", specialization: "Healthcare Legal Services", experience: 24, sheet: SHEET_3, col: 3 },
-  // Sheet 4
-  { name: "Dr. Naif Mohammad M Harthi", specialization: "Clinical Research Services", experience: 12, sheet: SHEET_4, col: 0 },
-  { name: "Heetaf Aloqaily", specialization: "Medical & Healthcare Event Services", experience: 6, sheet: SHEET_4, col: 1 },
-  { name: "Ateeq Omar Marzuq Almuwallad", specialization: "Clinical Research Services", experience: 12, sheet: SHEET_4, col: 2 },
-  { name: "Mohammed Sultan", specialization: "Clinical Research Services", experience: 21, sheet: SHEET_4, col: 3 },
-  // Sheet 5
-  { name: "Shahad Aldawsari", specialization: "Toxicology & Environmental Medicine", experience: 1, sheet: SHEET_5, col: 0 },
-  { name: "Zakaria Mani", specialization: "Clinical Research Services", experience: 18, sheet: SHEET_5, col: 1 },
-  { name: "Rawan Eskandarani", specialization: "Clinical Research Services", experience: 9, sheet: SHEET_5, col: 2 },
-  { name: "Shahnaz Alkhalil", specialization: "Healthcare Quality & Accreditation", experience: 16, sheet: SHEET_5, col: 3 },
+  {
+    name: "Bandar Mzahim",
+    specialization: "Clinical Research Services",
+    experience: 12,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777375688_Screenshot%202026-04-28%20at%2014.26.34.png",
+  },
+  {
+    name: "Khalid Almulhim",
+    specialization: "Toxicology & Environmental Medicine",
+    experience: 15,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778402332.jpg",
+  },
+  {
+    name: "Bodor Alqaaed",
+    specialization: "Telepsychology & Mental Health",
+    experience: 4,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777426862_1777426783_Subject.png",
+  },
+  {
+    name: "Nidaa Bajow",
+    specialization: "Strategy & Capacity Planning",
+    experience: 17,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777925299.jpg",
+  },
+  {
+    name: "Sharafaldeen Bin Nafisah",
+    specialization: "Clinical Research Services",
+    experience: 7,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777375438_image2.jpeg",
+  },
+  {
+    name: "Samah Alsadah",
+    specialization: "Telepsychology & Mental Health",
+    experience: 14,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777400959_1777400911_%D8%B3%D9%85%D8%A7%D8%AD%20.jpeg",
+  },
+  {
+    name: "Ansar Halayqa",
+    specialization: "Telepsychology & Mental Health",
+    experience: 10,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777482069_Snapchat-100737972.jpg",
+  },
+  {
+    name: "Mona AlMofadda",
+    specialization: "Healthcare Quality & Accreditation",
+    experience: 8,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778946261_1778946205_YELLOW.jpeg",
+  },
+  {
+    name: "Shahad Aldawsari",
+    specialization: "Toxicology & Environmental Medicine",
+    experience: 1,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778041451_1778041441_IMG_0369.jpeg",
+  },
+  {
+    name: "Zakaria Mani",
+    specialization: "Clinical Research Services",
+    experience: 18,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778228079_WhatsApp%20Image%202023-07-12%20at%208.15.35%20PM.jpeg",
+  },
+  {
+    name: "Rawan Eskandarani",
+    specialization: "Clinical Research Services",
+    experience: 9,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778238703_1000238358.jpg",
+  },
+  {
+    name: "Shahnaz Alkhalil",
+    specialization: "Healthcare Quality & Accreditation",
+    experience: 16,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778253255_1778253215_Shahnazm.jpg",
+  },
+  {
+    name: "Bodoor Ayman Tayeb",
+    specialization: "Healthcare Quality & Accreditation",
+    experience: 10,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778324159_em%20pic.jpg",
+  },
+  {
+    name: "Hassan Farhat",
+    specialization: "Clinical Research Services",
+    experience: 17,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778321256_1778321232_2067d08b-f8f9-419e-8b32-19f4aff0d39c.jpeg",
+  },
+  {
+    name: "Mohammed Badawy",
+    specialization: "Clinical Research Services",
+    experience: 12,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778384887_aaa.jpg",
+  },
+  {
+    name: "Abdussalam Ali Alshehri",
+    specialization: "Healthcare Legal Services",
+    experience: 24,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778415849_1778415811_1000002212.jpg",
+  },
+  {
+    name: "Dr. Naif Mohammad M Harthi",
+    specialization: "Clinical Research Services",
+    experience: 12,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778422556_1778422519_Untitled.jpg",
+  },
+  {
+    name: "Heetaf Aloqaily",
+    specialization: "Medical & Healthcare Event Services",
+    experience: 6,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778528306_1778528282_PHOTO-2025-07-08-17-30-34.jpg",
+  },
+  {
+    name: "Ateeq Omar Marzuq Almuwallad",
+    specialization: "Clinical Research Services",
+    experience: 12,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1778736837_1778736813_%D8%B5%D9%88%D8%B1%D8%A9%20%D8%B4%D8%AE%D8%B5%D9%8A%D8%A9%20-%20%D8%B9%D8%AA%D9%8A%D9%82%20%D8%A7%D9%84%D9%85%D9%88%D9%84%D8%AF.jpeg",
+  },
+  {
+    name: "Mohammed Sultan",
+    specialization: "Clinical Research Services",
+    experience: 21,
+    image:
+      "https://platform.aretion.org/uploads/consultants/1777982621_1000242157.jpg",
+  },
 ];
 
 export default function ConsultantShowcase() {
@@ -71,13 +177,33 @@ export default function ConsultantShowcase() {
     <section
       id="consultants"
       data-testid="consultants-section"
-      className="relative py-24 md:py-32 lg:py-40 bg-[#EBE4D5]/40 border-y border-[#E2D8C6]"
+      className="relative py-24 md:py-32 lg:py-40 bg-[#EBE4D5]/40 border-y border-[#E2D8C6] overflow-hidden"
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
+      {/* Editorial section ornament */}
+      <div
+        aria-hidden="true"
+        className="absolute -right-10 top-20 hidden lg:block pointer-events-none select-none"
+        style={{
+          fontFamily: "'Cormorant Garamond', serif",
+          fontStyle: "italic",
+          color: "#C8A97E",
+          opacity: 0.08,
+          fontSize: "clamp(7rem, 14vw, 14rem)",
+          lineHeight: 1,
+          letterSpacing: "-0.04em",
+        }}
+      >
+        council
+      </div>
+
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Section header */}
         <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-4">
             <span className="overline text-[#C8A97E]">— The Council</span>
+            <p className="hidden md:block mt-6 text-sm text-[#4A5D54]/80 max-w-[18ch] leading-relaxed">
+              20 advisors. 9 disciplines. One discreet standard of practice.
+            </p>
           </div>
           <div className="col-span-12 md:col-span-8">
             <h2
@@ -107,83 +233,111 @@ export default function ConsultantShowcase() {
         <div
           ref={gridRef}
           data-testid="consultants-grid"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 md:gap-x-8 gap-y-14 md:gap-y-20"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-7 md:gap-x-10 gap-y-16 md:gap-y-24"
         >
           {CONSULTANTS.map((c, idx) => (
             <article
               key={`${c.name}-${idx}`}
               data-testid={`consultant-card-${idx}`}
-              className="consultant-card group"
-              style={{
-                // Stagger inside each row of 4 (xl breakpoint), graceful on smaller too
-                transitionDelay: `${(idx % 4) * 90}ms`,
-              }}
+              className="consultant-card group relative"
+              style={{ transitionDelay: `${(idx % 4) * 110}ms` }}
             >
-              <div className="consultant-photo relative aspect-[3/4] w-full overflow-hidden">
-                {/* Inner zoom wrapper — scales the absolutely-positioned image on hover
-                    without breaking its calibrated offset (transform origin is centered). */}
-                <div className="consultant-zoom absolute inset-0">
+              {/* Oversized editorial numeral — floats outside frame top-left */}
+              <span
+                className="consultant-numeral absolute -top-3 -left-1 md:-top-4 md:-left-2 text-[#C8A97E] z-20 pointer-events-none"
+                style={{
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontStyle: "italic",
+                  fontWeight: 300,
+                  fontSize: "clamp(2.25rem, 4vw, 3.25rem)",
+                  lineHeight: 1,
+                  letterSpacing: "-0.02em",
+                }}
+                aria-hidden="true"
+              >
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+
+              {/* Photo frame */}
+              <div
+                data-testid={`consultant-photo-${idx}`}
+                className="consultant-photo relative aspect-[3/4] w-full overflow-hidden"
+              >
+                {/* Inner photo — clip-path reveal on entrance, zoom + duotone shift on hover */}
+                <div className="consultant-mask absolute inset-0">
                   <img
-                    src={c.sheet}
+                    src={c.image}
                     alt={c.name}
                     loading="lazy"
-                    className="consultant-img absolute max-w-none select-none pointer-events-none"
+                    className="consultant-img w-full h-full object-cover object-center select-none"
                     draggable={false}
-                    style={{
-                      width: "1000%",
-                      height: "auto",
-                      top: "-9%",
-                      left: `-${c.col * 250 + 75}%`,
-                    }}
                   />
                 </div>
-                {/* Cream wash overlay — softens any white backgrounds in source
-                    so portraits feel embedded in the editorial palette */}
-                <div className="consultant-wash absolute inset-0 pointer-events-none" aria-hidden="true" />
-                {/* Index numeral */}
+
+                {/* Hairline gold frame inside the photo */}
                 <span
-                  className="absolute top-3 left-3 text-[#F9F6F0] bg-[#1A362D]/55 backdrop-blur-sm px-2 py-1 z-10"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "0.8rem",
-                    fontWeight: 500,
-                    letterSpacing: "0.2em",
-                  }}
                   aria-hidden="true"
-                >
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
+                  className="consultant-frame absolute inset-2 md:inset-3 pointer-events-none border border-[#C8A97E]/0 group-hover:border-[#C8A97E]/70 transition-colors duration-500"
+                />
+
+                {/* Deep-forest scrim that lifts the caption on hover */}
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(26,54,45,0) 0%, rgba(26,54,45,0.55) 100%)",
+                  }}
+                />
+
+                {/* Specialty chip — slides in from bottom on hover */}
+                <div className="consultant-chip absolute left-3 right-3 md:left-4 md:right-4 bottom-3 md:bottom-4 z-10 pointer-events-none">
+                  <div className="flex items-center justify-between gap-3 backdrop-blur-md bg-[#F9F6F0]/85 border border-[#E2D8C6] px-3 py-2">
+                    <span className="overline text-[#1A362D] truncate">
+                      {c.specialization}
+                    </span>
+                    <ArrowUpRight
+                      size={13}
+                      className="text-[#C8A97E] shrink-0"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div className="mt-5 md:mt-6">
-                <div className="gold-divider mb-3" aria-hidden="true" />
+              {/* Caption */}
+              <div className="mt-6 md:mt-7">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="gold-divider" aria-hidden="true" />
+                  <span className="overline text-[#4A5D54]">
+                    Senior Advisor
+                  </span>
+                </div>
                 <h3
                   data-testid={`consultant-name-${idx}`}
                   className="text-[#1A362D]"
                   style={{
                     fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: "1.5rem",
+                    fontSize: "1.55rem",
                     fontWeight: 400,
                     lineHeight: 1.1,
+                    letterSpacing: "-0.01em",
                   }}
                 >
                   <span className="name-underline">{c.name}</span>
                 </h3>
-                <p
-                  data-testid={`consultant-spec-${idx}`}
-                  className="mt-2 text-sm text-[#4A5D54] leading-snug"
-                >
-                  {c.specialization}
-                </p>
-                <div className="mt-3 flex items-center justify-between gap-3">
+                <div className="mt-3 flex items-baseline justify-between gap-4">
+                  <p
+                    data-testid={`consultant-spec-${idx}`}
+                    className="text-sm text-[#4A5D54] leading-snug"
+                  >
+                    {c.specialization}
+                  </p>
                   <span
                     data-testid={`consultant-experience-${idx}`}
-                    className="overline text-[#4A5D54]"
+                    className="overline text-[#C8A97E] shrink-0"
                   >
-                    {c.experience} {c.experience === 1 ? "year" : "years"}
-                  </span>
-                  <span className="overline text-[#C8A97E] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Read profile →
+                    {c.experience} {c.experience === 1 ? "yr" : "yrs"}
                   </span>
                 </div>
               </div>

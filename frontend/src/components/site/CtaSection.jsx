@@ -56,7 +56,7 @@ export default function CtaSection() {
 
         <div className="mt-12 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-8">
           <a
-            href="https://platform.aretion.com/join"
+            href="https://aretion.org/"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="main-cta-button"

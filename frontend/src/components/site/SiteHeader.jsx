@@ -67,7 +67,7 @@ export default function SiteHeader() {
           {/* CTA + Mobile toggle */}
           <div className="flex items-center gap-4">
             <a
-              href="https://platform.aretion.com/join"
+              href="https://aretion.org/"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="header-cta-button"
@@ -107,7 +107,7 @@ export default function SiteHeader() {
               </a>
             ))}
             <a
-              href="https://platform.aretion.com/join"
+              href="https://aretion.org/"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="mobile-cta-button"

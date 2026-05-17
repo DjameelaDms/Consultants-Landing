@@ -63,7 +63,7 @@ export default function Hero({ mounted }) {
               className={`mt-10 md:mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 ${mounted ? "reveal-fade-up delay-3" : "opacity-0"}`}
             >
               <a
-                href="https://platform.aretion.com/join"
+                href="https://aretion.org/"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-cta-primary"
