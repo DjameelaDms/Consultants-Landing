@@ -53,8 +53,7 @@ export default function SiteFooter() {
             </h3>
             <p className="max-w-sm text-sm text-[#4A5D54] leading-relaxed">
               A UK-based group overseeing specialist entities in healthcare
-              technology, consulting and academic publishing. In healthcare
-              since 1986.
+              technology, consulting and academic publishing.
             </p>
           </div>
         </div>
@@ -125,15 +124,27 @@ export default function SiteFooter() {
               </div>
             </div>
 
-            <div className="mt-8 flex items-start gap-3">
-              <Mail size={16} className="mt-1 text-[#C8A97E]" />
-              <a
-                href="mailto:post@aretion.co.uk"
-                data-testid="footer-email"
-                className="text-base text-[#0C2039] hover:text-[#C8A97E] transition-colors"
-              >
-                post@aretion.co.uk
-              </a>
+            <div className="mt-8 flex flex-col gap-3">
+              <div className="flex items-start gap-3">
+                <Mail size={16} className="mt-1 text-[#C8A97E] shrink-0" />
+                <a
+                  href="mailto:post@aretion.co.uk"
+                  data-testid="footer-email"
+                  className="text-base text-[#0C2039] hover:text-[#C8A97E] transition-colors"
+                >
+                  post@aretion.co.uk
+                </a>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail size={16} className="mt-1 text-[#C8A97E] shrink-0" />
+                <a
+                  href="mailto:contact@aretion.org"
+                  data-testid="footer-email-secondary"
+                  className="text-base text-[#0C2039] hover:text-[#C8A97E] transition-colors"
+                >
+                  contact@aretion.org
+                </a>
+              </div>
             </div>
           </div>
 

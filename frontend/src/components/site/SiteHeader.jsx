@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { label: "Consultants", href: "#consultants", testid: "nav-consultants" },
   { label: "Approach", href: "#approach", testid: "nav-approach" },
-  { label: "Insights", href: "#insights", testid: "nav-insights" },
+  { label: "Insights", href: "https://aretion.org/services/", testid: "nav-insights", external: true },
   { label: "Contact", href: "#footer", testid: "nav-contact" },
 ];
 
@@ -58,6 +58,9 @@ export default function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 data-testid={link.testid}
                 className="text-[11px] uppercase tracking-[0.22em] text-[#0C2039] hover:text-[#C8A97E] transition-colors duration-300 relative group"
               >
@@ -102,6 +105,9 @@ export default function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
+                {...(link.external
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 onClick={() => setOpen(false)}
                 data-testid={`mobile-${link.testid}`}
                 className="text-sm uppercase tracking-[0.22em] text-[#0C2039] hover:text-[#C8A97E]"
