@@ -1,10 +1,34 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowDownRight } from "lucide-react";
-import { OrnamentDivider, Crown } from "./Ornament";
+import { OrnamentDivider } from "./Ornament";
 
 const HERO_IMAGE =
   "https://images.unsplash.com/photo-1775601258812-b8d41b699eab?w=1400&h=1800&fit=crop&q=85";
 
 export default function Hero({ mounted }) {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        setScrollY(window.scrollY);
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  // Parallax: hero palace drifts ~18% of scroll, sub-pixel transformed.
+  const imgTransform = `translate3d(0, ${Math.min(scrollY * 0.18, 240)}px, 0) scale(1.06)`;
+  // Headline gently rises and fades a touch as you scroll into the body.
+  const headlineOpacity = Math.max(0.25, 1 - scrollY / 700);
+  const headlineTransform = `translate3d(0, ${scrollY * 0.08}px, 0)`;
   return (
     <section
       id="top"
@@ -12,20 +36,15 @@ export default function Hero({ mounted }) {
       className="relative pt-32 md:pt-40 pb-24 md:pb-32 paper-grain"
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
-        {/* Top meta row */}
-        <div
-          data-testid="hero-meta"
-          className={`flex items-center justify-end mb-12 md:mb-20 ${mounted ? "reveal-fade-up" : "opacity-0"}`}
-        >
-          <span className="hidden md:inline overline text-[#4A5D54]">
-            Vol. I — Council of Advisers
-          </span>
-        </div>
+        {/* Top meta row — removed */}
 
         {/* Asymmetric split */}
         <div className="grid grid-cols-12 gap-6 md:gap-10 items-end">
           {/* Headline column */}
-          <div className="col-span-12 lg:col-span-7 xl:col-span-7">
+          <div
+            className="col-span-12 lg:col-span-7 xl:col-span-7"
+            style={{ opacity: headlineOpacity, transform: headlineTransform, willChange: "transform, opacity" }}
+          >
             <OrnamentDivider className={`w-44 h-5 -ml-1 mb-5 ${mounted ? "reveal-fade-up delay-1" : "opacity-0"}`} />
             <h1
               data-testid="hero-headline"
@@ -91,8 +110,9 @@ export default function Hero({ mounted }) {
               <img
                 src={HERO_IMAGE}
                 alt="19th-century Victorian luxury palace interior"
-                className="w-full h-full object-cover slow-zoom"
+                className="w-full h-full object-cover"
                 loading="eager"
+                style={{ transform: imgTransform, willChange: "transform" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0C2039]/30 via-transparent to-transparent" />
               {/* Floating credential card */}

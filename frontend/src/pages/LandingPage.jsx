@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SiteHeader from "@/components/site/SiteHeader";
 import Hero from "@/components/site/Hero";
+import MarqueeStrip from "@/components/site/MarqueeStrip";
 import ConsultantShowcase from "@/components/site/ConsultantShowcase";
 import CtaSection from "@/components/site/CtaSection";
 import SiteFooter from "@/components/site/SiteFooter";
@@ -37,6 +38,7 @@ export default function LandingPage() {
     >
       <SiteHeader />
       <Hero mounted={mounted} />
+      <MarqueeStrip />
       <ConsultantShowcase />
       <CtaSection />
       <SiteFooter />

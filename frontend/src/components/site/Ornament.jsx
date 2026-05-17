@@ -40,6 +40,54 @@ export const Crown = ({ size = 20, className = "", title = "Crown" }) => (
   </svg>
 );
 
+/**
+ * Victorian florette — a four-petalled ornamental star, very common in
+ * 19th-century book typography as a section breaker (* * *).
+ */
+export const VictorianFloret = ({ size = 18, className = "", title = "Florette" }) => (
+  <svg
+    viewBox="0 0 64 64"
+    width={size}
+    height={size}
+    aria-label={title}
+    role="img"
+    className={className}
+    fill="currentColor"
+  >
+    {/* Four diamond petals */}
+    <path d="M32 4 L36 28 L32 32 L28 28 Z" />
+    <path d="M60 32 L36 36 L32 32 L36 28 Z" />
+    <path d="M32 60 L28 36 L32 32 L36 36 Z" />
+    <path d="M4 32 L28 28 L32 32 L28 36 Z" />
+    {/* Centre lozenge */}
+    <path d="M32 28 L36 32 L32 36 L28 32 Z" fill="none" stroke="currentColor" strokeWidth="1" />
+    {/* Tiny corner dots */}
+    <circle cx="48" cy="16" r="1.4" />
+    <circle cx="16" cy="16" r="1.4" />
+    <circle cx="48" cy="48" r="1.4" />
+    <circle cx="16" cy="48" r="1.4" />
+  </svg>
+);
+
+/**
+ * Victorian asterism — three small diamonds in triangle (typographic ornament).
+ */
+export const Asterism = ({ size = 24, className = "", title = "Asterism" }) => (
+  <svg
+    viewBox="0 0 64 32"
+    width={size}
+    height={size * 0.5}
+    aria-label={title}
+    role="img"
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M32 4 L36 12 L32 20 L28 12 Z" />
+    <path d="M12 16 L16 24 L12 32 L8 24 Z" />
+    <path d="M52 16 L56 24 L52 32 L48 24 Z" />
+  </svg>
+);
+
 export const OrnamentDivider = ({ className = "", color = "#C8A97E" }) => (
   <svg
     viewBox="0 0 360 28"

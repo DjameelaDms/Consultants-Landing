@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { Crown, OrnamentDivider } from "./Ornament";
+import { VictorianFloret, OrnamentDivider } from "./Ornament";
 
 export default function CtaSection() {
   return (
@@ -28,7 +28,7 @@ export default function CtaSection() {
 
       <div className="relative max-w-[1100px] mx-auto px-6 md:px-12 text-center">
         <div className="flex flex-col items-center gap-4 mb-4">
-          <Crown size={22} className="text-[#C8A97E]" />
+          <VictorianFloret size={22} className="text-[#C8A97E] floret-spin" />
           <OrnamentDivider className="w-44 h-5" />
         </div>
         <span className="overline text-[#C8A97E]" data-testid="cta-eyebrow">

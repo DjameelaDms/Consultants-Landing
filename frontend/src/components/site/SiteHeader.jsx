@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Crown } from "./Ornament";
+import { VictorianFloret } from "./Ornament";
 
 const NAV_LINKS = [
   { label: "Consultants", href: "#consultants", testid: "nav-consultants" },
@@ -31,9 +31,9 @@ export default function SiteHeader() {
     >
       {/* Royal-patronage micro-bar */}
       <div className="hidden md:flex items-center justify-center gap-3 py-1.5 bg-[#0C2039] text-[#F9F6F0]/85 text-[10px] uppercase tracking-[0.32em]" data-testid="royal-bar">
-        <Crown size={12} className="text-[#C8A97E]" />
+        <VictorianFloret size={11} className="text-[#C8A97E]" />
         <span>Healthcare Advisory · By Appointment · Est. 1986</span>
-        <Crown size={12} className="text-[#C8A97E]" />
+        <VictorianFloret size={11} className="text-[#C8A97E]" />
       </div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">

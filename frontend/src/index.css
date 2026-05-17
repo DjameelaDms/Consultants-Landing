@@ -330,6 +330,47 @@ body {
     }
 }
 
+/* ===== Ambient page motion ===== */
+@keyframes marquee {
+    0%   { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+    animation: marquee 38s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes floret-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.floret-spin {
+    animation: floret-spin 22s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes ornament-float {
+    0%, 100% { transform: translate3d(0, 0, 0); }
+    50%      { transform: translate3d(0, -6px, 0); }
+}
+
+.ornament-float {
+    animation: ornament-float 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track,
+    .floret-spin,
+    .ornament-float {
+        animation: none !important;
+    }
+}
+
 /* Hide the third-party Emergent badge per client request */
 #emergent-badge {
     display: none !important;
