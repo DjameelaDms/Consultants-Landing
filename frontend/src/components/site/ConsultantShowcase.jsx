@@ -202,10 +202,6 @@ export default function ConsultantShowcase() {
         <div className="grid grid-cols-12 gap-6 md:gap-10 mb-16 md:mb-24">
           <div className="col-span-12 md:col-span-4">
             <span className="overline text-[#C8A97E]">— The Council</span>
-            <p className="hidden md:block mt-6 text-sm text-[#4A5D54]/80 max-w-[18ch] leading-relaxed">
-              Twenty advisers. Nine disciplines. One discreet standard
-              of practice.
-            </p>
           </div>
           <div className="col-span-12 md:col-span-8">
             <h2

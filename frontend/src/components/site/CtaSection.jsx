@@ -44,10 +44,10 @@ export default function CtaSection() {
             fontSize: "clamp(2.25rem, 6vw, 5rem)",
           }}
         >
-          Join Our Consulting
+          Book a
           <br />
           <span className="italic text-[#C8A97E]" style={{ fontWeight: 400 }}>
-            Platform Today.
+            Consultation.
           </span>
         </h2>
 
@@ -62,13 +62,13 @@ export default function CtaSection() {
 
         <div className="mt-12 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-5 md:gap-8">
           <a
-            href="https://aretion.org/"
+            href="https://platform.aretion.org/login"
             target="_blank"
             rel="noopener noreferrer"
             data-testid="main-cta-button"
             className="btn-gold inline-flex items-center gap-3 bg-[#C8A97E] text-[#0C2039] px-10 py-5 text-[11px] uppercase tracking-[0.28em] font-semibold"
           >
-            <span>Join Our Consulting Platform Today</span>
+            <span>Book a Consultation</span>
             <ArrowUpRight size={16} className="relative z-10" />
           </a>
           <a

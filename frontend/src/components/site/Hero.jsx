@@ -15,12 +15,8 @@ export default function Hero({ mounted }) {
         {/* Top meta row */}
         <div
           data-testid="hero-meta"
-          className={`flex items-center justify-between mb-12 md:mb-20 ${mounted ? "reveal-fade-up" : "opacity-0"}`}
+          className={`flex items-center justify-end mb-12 md:mb-20 ${mounted ? "reveal-fade-up" : "opacity-0"}`}
         >
-          <span className="overline text-[#C8A97E] flex items-center gap-2" data-testid="hero-eyebrow">
-            <Crown size={14} className="text-[#C8A97E]" />
-            Healthcare Advisory · By Appointment · Est. 1986
-          </span>
           <span className="hidden md:inline overline text-[#4A5D54]">
             Vol. I — Council of Advisers
           </span>
@@ -66,13 +62,13 @@ export default function Hero({ mounted }) {
               className={`mt-10 md:mt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 ${mounted ? "reveal-fade-up delay-3" : "opacity-0"}`}
             >
               <a
-                href="https://aretion.org/"
+                href="https://platform.aretion.org/login"
                 target="_blank"
                 rel="noopener noreferrer"
                 data-testid="hero-cta-primary"
                 className="btn-primary inline-flex items-center gap-3 bg-[#0C2039] text-[#F9F6F0] px-8 py-4 text-[11px] uppercase tracking-[0.24em]"
               >
-                <span>Join Our Consulting Platform</span>
+                <span>Book a Consultation</span>
                 <ArrowDownRight size={16} className="relative z-10" />
               </a>
               <a

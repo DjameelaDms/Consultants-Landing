@@ -32,7 +32,7 @@ export default function SiteHeader() {
       {/* Royal-patronage micro-bar */}
       <div className="hidden md:flex items-center justify-center gap-3 py-1.5 bg-[#0C2039] text-[#F9F6F0]/85 text-[10px] uppercase tracking-[0.32em]" data-testid="royal-bar">
         <Crown size={12} className="text-[#C8A97E]" />
-        <span>By Appointment · A British Healthcare Advisory · Est. MDCCCLXXXVI</span>
+        <span>Healthcare Advisory · By Appointment · Est. 1986</span>
         <Crown size={12} className="text-[#C8A97E]" />
       </div>
 
@@ -48,7 +48,7 @@ export default function SiteHeader() {
             <img
               src="https://customer-assets.emergentagent.com/job_healthcare-advisors/artifacts/6sd18gkg_A_Logo-39.png"
               alt="Aretion & Company"
-              className="h-10 md:h-12 w-auto select-none"
+              className="h-14 md:h-20 w-auto select-none"
               draggable={false}
               data-testid="brand-logo-img"
               style={{ objectFit: "contain", objectPosition: "center" }}
@@ -73,13 +73,13 @@ export default function SiteHeader() {
           {/* CTA + Mobile toggle */}
           <div className="flex items-center gap-4">
             <a
-              href="https://aretion.org/"
+              href="https://aretion.org/for-careers/"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="header-cta-button"
               className="hidden md:inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[#F9F6F0] bg-[#0C2039] hover:bg-[#16335E] transition-colors duration-300 px-5 py-3"
             >
-              Join Platform
+              Join Our Team
               <span aria-hidden="true">→</span>
             </a>
             <button
@@ -113,13 +113,13 @@ export default function SiteHeader() {
               </a>
             ))}
             <a
-              href="https://aretion.org/"
+              href="https://aretion.org/for-careers/"
               target="_blank"
               rel="noopener noreferrer"
               data-testid="mobile-cta-button"
               className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.22em] text-[#F9F6F0] bg-[#0C2039] px-5 py-3 w-fit"
             >
-              Join Platform →
+              Join Our Team →
             </a>
           </div>
         )}
