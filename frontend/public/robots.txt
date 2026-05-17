@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Allow major AI / search crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://aretion.co.uk/sitemap.xml
+Host: https://aretion.co.uk

@@ -35,10 +35,18 @@ export default function MarqueeStrip() {
   return (
     <section
       data-testid="marquee-strip"
-      aria-hidden="true"
+      aria-label="ARETION & Company healthcare advisory services"
       className="relative overflow-hidden bg-[#0C2039] text-[#F9F6F0] py-6 md:py-8 border-y border-[#C8A97E]/20 select-none"
     >
-      <div className="marquee-track flex items-center whitespace-nowrap will-change-transform">
+      {/* Visually-hidden SEO heading + service list (indexable, screen-reader friendly) */}
+      <h2 className="sr-only">Our Healthcare Advisory Services</h2>
+      <ul className="sr-only">
+        {PHRASES.map((p) => (
+          <li key={`sr-${p}`}>{p}</li>
+        ))}
+      </ul>
+
+      <div className="marquee-track flex items-center whitespace-nowrap will-change-transform" aria-hidden="true">
         {items.map((p, i) => (
           <span
             key={`${p}-${i}`}
